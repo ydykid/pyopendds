@@ -11,6 +11,7 @@ from pyopendds import (
 from pybasic.basic import Reading
 
 if __name__ == "__main__":
+    print('123')
     print('OpenDDS Version is:', opendds_version_dict())
     try:
         # Initialize OpenDDS and Create DDS Entities
@@ -23,7 +24,7 @@ if __name__ == "__main__":
         # Wait for Publisher to Connect
         print('Waiting for Publisher...')
         reader.wait_for(StatusKind.SUBSCRIPTION_MATCHED, timedelta(seconds=5))
-        print('Found Publisher!')
+        print('Found Publisher!...123')
 
         # Read and Print Sample
         print(reader.take_next_sample())
@@ -31,4 +32,5 @@ if __name__ == "__main__":
         print('Done!')
 
     except PyOpenDDS_Error as e:
+        print('PyOpenDDS_Error:', e)
         sys.exit(e)
