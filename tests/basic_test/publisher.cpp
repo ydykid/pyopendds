@@ -89,18 +89,20 @@ int main(int argc, char* argv[])
 #ifdef CPP11_IDL
       () = basic::ReadingKind::speed;
 #else
-      = basic::speed;
+      // = basic::speed;
+      = basic::distance;
 #endif
     reading.value
 #ifdef CPP11_IDL
       ()
 #endif
-      = -200;
+      // = -200;
+      = 110;
     reading.where
 #ifdef CPP11_IDL
       ()
 #endif
-      = "Somewhere";
+      = "Somewhere ok!";
     rc = reading_writer->write(reading, DDS::HANDLE_NIL);
     if (rc != DDS::RETCODE_OK) {
       std::cerr << "Error: Failed to write: " << retcode_to_string(rc) << std::endl;
